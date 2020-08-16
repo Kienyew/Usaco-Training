@@ -15,7 +15,7 @@ inputs = fin.read_text().splitlines()
 N = int(inputs[0])
 key_a = [*map(int, inputs[1].split(' '))]
 key_b = [*map(int, inputs[2].split(' '))]
-deltas = list(product((-2, -1, 0, 1, 2), repeat=3))
+deltas = [*product((-2, -1, 0, 1, 2), repeat=3)]
 
 KeyType = Tuple[int, int, int]
 
