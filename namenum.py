@@ -11,14 +11,6 @@ serial = Path('namenum.in').read_text().strip()
 # ok_names = set(requests.get('https://train.usaco.org/usaco/namenumdict.txt').text.splitlines())
 ok_names = set(Path('dict.txt').read_text().splitlines())
 
-'''
-ARGUMENTS
----------
-path: current path, a string
-digits: string of digits representing each number on number pad on the so called phone
-ok_names: set of still possible name
-'''
-
 keypad = {
     '2': 'ABC',
     '3': 'DEF',
@@ -30,7 +22,13 @@ keypad = {
     '9': 'WXY',
 }
 
-
+'''
+ARGUMENTS
+---------
+path: current path, a string
+digits: string of digits representing each number on number pad on the so called phone
+ok_names: set of still possible name
+'''
 def track(path: str, digits: str, ok_names: set) -> list:
     if not any(name.startswith(path) for name in ok_names):
         return
