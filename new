@@ -14,7 +14,7 @@ placeholder="$(cat <<EOF
 """
 ID: aobi1001
 LANG: PYTHON3
-TASK: 
+TASK: %s
 """
 
 from pathlib import Path
@@ -25,4 +25,4 @@ fout = Path('%s')
 EOF
 )"
 
-printf "$placeholder" "$1".in "$1".out >> "$1".py
+printf "$placeholder" "$1" "$1".in "$1".out >> "$1".py
