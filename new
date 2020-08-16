@@ -1,0 +1,28 @@
+#!/bin/sh
+# create {TASK}.py {TASK}.in {TASK}.out
+
+usage() {
+    printf "usage: %s TASK\n" "$0"
+}
+
+[ $# != 1 ] && usage && exit 1
+[ "$1" = "" ] && usage && exit 1
+
+touch "$1".py "$1".in "$1".out
+
+placeholder="$(cat <<EOF
+"""
+ID: aobi1001
+LANG: PYTHON3
+TASK: 
+"""
+
+from pathlib import Path
+
+fin = Path('%s')
+fout = Path('%s')
+
+EOF
+)"
+
+printf "$placeholder" "$1".in "$1".out >> "$1".py
